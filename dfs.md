@@ -90,7 +90,7 @@ bool used[maxn];
 int h[maxn], d[maxn];
 
 void dfs(int v, int p = -1) {
-    used[u] = true;
+    used[v] = true;
     d[v] = h[v] = (p == -1 ? 0 : h[p] + 1);
     for (int u : g[v]) {
         if (u != p) {
@@ -99,7 +99,7 @@ void dfs(int v, int p = -1) {
             else { // если рябро прямое
                 dfs(u, v);
                 d[v] = min(d[v], d[u]);
-                if (h[v] < d[v]) {
+                if (h[v] < d[u]) {
                     // ребро (v, u) -- мост
                 }
             }
